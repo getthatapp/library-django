@@ -1,0 +1,13 @@
+<h2>Szczegóły książki</h2>
+<p><strong>Tytuł:</strong> {{ title.name }}</p>
+<p><strong>Opis:</strong> {{ title.description }}</p>
+<p><strong>Autor:</strong> {{ title.author.name }}</p>
+<p><strong>Gatunki:</strong>
+    {% for genre in title.genre.all %}
+        {{ genre.name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+<a href="{% url 'edit_title' title.id %}">Edytuj ksiazke</a>
+<a href="{% url 'delete_title' title.id %}">Usun ksiazke</a>
+
+<a href="{% url 'title_list' %}">Powrot do listy ksiazek</a>

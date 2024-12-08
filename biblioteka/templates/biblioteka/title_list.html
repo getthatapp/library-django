@@ -1,0 +1,12 @@
+<h1>Lista Książek</h1>
+<ul>
+    {% for title in titles %}
+        <li>
+            <a href="{% url 'title_detail' title.id %}"><strong>{{ title.name }}</strong></a> - {{ title.author }}
+            <br>
+            {{ title.description|truncatewords:20 }}
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'add_title' %}">Dodaj nowa ksiazke</a>

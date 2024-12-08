@@ -14,6 +14,7 @@ class Genre(models.Model):
 
 class Title(models.Model):
     name = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="titles")
     genre = models.ManyToManyField(Genre, related_name="titles")
 
